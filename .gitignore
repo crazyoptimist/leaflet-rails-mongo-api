@@ -25,4 +25,3 @@
 
 # Ignore .env file
 .env
-/config/mongoid.yml
