@@ -15,6 +15,13 @@ class Api::V1::GeoDataController < ApplicationController
       render error: { error: 'Unable to create GeoDatum.' }, status: 400
     end
   end
+
+  # DELETE /geo_data/delete_all
+  def destroy
+    @purge_result = GeoDatum.destroy_all
+    render json: @purge_result
+  end
+  
   
   private
 
