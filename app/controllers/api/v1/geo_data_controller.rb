@@ -19,7 +19,11 @@ class Api::V1::GeoDataController < ApplicationController
   private
 
   def geo_datum_params
-    params.require(:geo_datum).permit(:type, :properties, :geometry)
+    params
+      .require(:geo_datum)
+      .permit(:type, properties: [ :name, :amenity, :popupContent ], 
+        geometry: [ :type, coordinates: [ :lat, :lng ] ]
+      )
   end
 
 end

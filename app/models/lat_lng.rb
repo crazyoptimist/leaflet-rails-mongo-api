@@ -1,10 +1,7 @@
 class LatLng
-  attr_reader :longitude, :latitude
-
-  def initialize(lng, lat)
-    @longitude = lng
-    @latitude = lat
-  end
+  include Mongoid::Document
+  field :lat, type: Float
+  field :lng, type: Float
 
   embedded_in :geometry, class_name: "Geometry"
 end
